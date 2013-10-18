@@ -316,4 +316,16 @@ end
 # at the end.
 # (there's no RSpec test for this one)
 def ninety_nine_bottles_of_beer
+  n = 99
+  until n == 1
+    puts "#{n} bottles of beer on the wall, #{n} bottles of beer."
+    n -= 1
+    puts "Take one down and pass it around, #{n} bottles of beer on the wall."
+    puts ""
+  end
+  puts "1 bottle of beer on the wall, 1 bottle of beer."
+  puts "Take one down and pass it around, no more bottles of beer on the wall."
+  puts ""
+  puts "No more bottles of beer on the wall, no more bottles of beer."
+  puts "Go to the store and buy some more, 99 bottles of beer on the wall."
 end
