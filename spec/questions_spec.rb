@@ -1,4 +1,3 @@
-require 'rspec'
 require './questions'
 
 describe 'the Friday test :)' do
@@ -215,4 +214,62 @@ describe 'the Friday test :)' do
     n = count_words_of_each_length_in_a_file('lorem.txt') || []
     expect(Hash[n.sort]).to eq({1=>1, 2=>5, 3=>7, 4=>12, 5=>14, 6=>4, 7=>8, 8=>6, 9=>6, 10=>2, 11=>2, 12=>3}) 
   end
+
+  context 'fizzbuzz_without_modulo' do
+
+    it 'should not use modulo' do
+      expect(Fixnum).not_to receive(:%)
+      fizzbuzz_without_modulo
+    end
+
+    context "Fixnum's should know if they are multiples of" do
+
+      example '3' do
+        expect(9.multiple_of?(3)).to be_true
+      end
+
+      example '5' do
+        expect(45.multiple_of?(5)).to be_true
+      end
+
+      example '15' do
+        expect(60.multiple_of?(15)).to be_true
+      end
+
+    end
+
+    context "Fixnum's should know if they are NOT multiples of" do
+
+      example '3' do
+        expect(10.multiple_of?(3)).to be_false
+      end
+
+      example '5' do
+        expect(44.multiple_of?(5)).to be_false
+      end
+
+      example '15' do
+        expect(61.multiple_of?(15)).to be_false
+      end
+
+    end
+
+    context 'should fizzbuzz 1..100' do
+
+      example 'returning a list of 100 elements' do
+        expect(fizzbuzz_without_modulo.count).to eq 100
+      end
+
+      example 'with 10..15 fizzbuzzed correctly' do
+        expect(fizzbuzz_without_modulo[9..14]).to eq ['Buzz', '11', 'Fizz', '13', '14', 'FizzBuzz']
+      end
+
+      example 'with 90..95 fizzbuzzed correctly' do
+        expect(fizzbuzz_without_modulo[89..94]).to eq ['FizzBuzz', '91', '92', 'Fizz', '94', 'Buzz']
+      end
+
+    end
+
+  end
+
 end
