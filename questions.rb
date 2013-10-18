@@ -1,11 +1,19 @@
 # keep only the elements that start with an a
 def select_elements_starting_with_a(array)
-  array.select { |element| element.downcase.chars.first == 'a' }
+  array.select { |element| element.first_letter == 'a' }
 end
 
 # keep only the elements that start with a vowel
 def select_elements_starting_with_vowel(array)
-  array.select { |element| %w(a e i o u).include?(element.downcase.chars.first) }
+  array.select { |element| %w(a e i o u).include?(element.first_letter) }
+end
+
+class String
+
+  def first_letter
+    self.downcase.chars.first
+  end
+
 end
 
 # remove instances of nil (but NOT false) from an array
@@ -68,7 +76,7 @@ end
 # even numbers come first
 # so [1, 2, 3, 4, 5, 6] becomes [[2, 4, 6], [1, 3, 5]]
 def separate_array_into_even_and_odd_numbers(array)
-  [array.select(&:even?), array.select(&:odd?)]
+  array.partition(&:even?)
 end
 
 # count the numbers of elements in an element which are palindromes
@@ -102,7 +110,7 @@ end
 # turn an array into itself repeated twice. So [1, 2, 3]
 # becomes [1, 2, 3, 1, 2, 3]
 def double_array(array)
-  array + array
+  array * 2
 end
 
 # convert a symbol into a string
