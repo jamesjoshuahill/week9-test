@@ -14,5 +14,5 @@ At the end there were two extra challenges:
   - writing FizzBuzz without using the modulo method, and
   - generating the lyrics of '99 bottles of beer on the wall'.
 
-For `fizzbuzz_without_modulo` I wrote tests in RSpec and monkey patched
-`Fixnum` with a recursive `multiple_of?(n)` method.
+For my `fizzbuzz_without_modulo` method I wrote tests in RSpec and monkey
+patched `Fixnum` with a recursive `multiple_of?(n)` method.
