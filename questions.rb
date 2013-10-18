@@ -302,6 +302,7 @@ class Fixnum
 
   def multiple_of?(x)
     return true if self == x
+    return false if x.even? && self.odd?
     return false if self < x
     (self - x).multiple_of?(x)
   end
